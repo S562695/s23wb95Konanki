@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1= title 
+  - let results=[{Oceans_name: "Indian Ocean",Conti_name:"Asia",population:46,000,000,000},{Oceans_name: "Pacific Ocean",Conti_name:"North America",population:579,000,000},{Oceans_name: "Artic Ocean",Conti_name:"Australia",population:26,000,000}]
+    div.container-fliud
+        div.row
+            each item,ind in results 
+                div(class='col-sm-2' onclick=`buy(${ind})`) 
+                    p Oceans Name  is #{item.Oceans_name}
+                    p Continents Name is #{item.Conti_name}
+                    p Population of Continents: #{item.population}
+    each lak,index in results
+        p value at index #{index} is : #{lak.Oceans_name},#{lak.Conti_name},#{lak.population}
+    script. 
+        function buy(i){
+            alert("You purchased item "+(i+1))
+        }
+  
